@@ -1,8 +1,7 @@
 (function(){ // wrap
 
-// For debugging:
-window.app = {};
-window.log = function(){
+window.app = {}; // namespace
+window.log = function(){ // for debugging
   if(typeof console !== 'undefined' && typeof console.log === 'function'){
     console.log(arguments);
   }
@@ -39,8 +38,7 @@ var createMap = function(){
   var overlays = {};
   L.control.layers(baseMaps, overlays).addTo(map);
 
-  // For debugging:
-  map.on('click', function (e) {
+  map.on('click', function(e) { // for debugging
     log("You clicked the map at " + e.latlng); 
   });
 };
@@ -53,7 +51,7 @@ var addData = function(){
       url: "data/trafikkulykker02.nvdb.json"
     , dataType: "json"
   })
-  .done(function(data){ // , status, response
+  .done(function(data){ 
     // Loop gjennom alle vegobjekter, finn coordinater og legg dem til kartet:
     var vegObr = data.resultater[0].vegObjekter;
     for (var i = 0; i < vegObr.length; i++) {
@@ -82,10 +80,6 @@ var addData = function(){
         m.on('popupopen', function(e) {
           $info.html(e.target.nvdbInfoTxt);
         });
-        // m.on('popupclose', function(e){
-        //   $info.text('');
-        // });
-
       }
     }; // for vegObr
 

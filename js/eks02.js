@@ -1,8 +1,8 @@
 (function(){ // wrap
 
-// For debugging:
-window.app = {};
-window.log = function(){
+
+window.app = {}; // namespace
+window.log = function(){ // for debugging
   if(typeof console !== 'undefined' && typeof console.log === 'function'){
     console.log(arguments);
   }
@@ -39,28 +39,18 @@ var createMap = function(){
   var overlays = {};
   L.control.layers(baseMaps, overlays).addTo(map);
 
-  // For debugging:
-  map.on('click', function (e) {
+  map.on('click', function(e) { // for debugging
     log("You clicked the map at " + e.latlng); 
   });
 };
 
 var addData = function(){
 
-/*
-  Two different definitions of same epsg id at http://spatialreference.org/ref/?search=epsg%3A3857 :
-  +proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +a=6378137 +b=6378137 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
-  og:
-  +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs
-*/
-  // proj4.defs('EPSG:32633', "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs");
-  // proj4.defs('EPSG:32633', "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs");
-
   $.ajax({
       url: "data/trafikkulykker02.nvdb.json"
     , dataType: "json"
   })
-  .done(function(data){ // , status, response
+  .done(function(data){ 
     // Loop gjennom alle vegobjekter, finn coordinater og legg dem til kartet:
     var vegObr = data.resultater[0].vegObjekter;
     for (var i = 0; i < vegObr.length; i++) {
@@ -88,9 +78,6 @@ var addData = function(){
         m.on('popupopen', function(e) {
           $info.html(e.target.nvdbInfoTxt);
         });
-        // m.on('popupclose', function(e){
-        //   $info.text('');
-        // });
       }
     }; // for vegObr
 

@@ -2,7 +2,7 @@
 
 Formålet med denne veiledning er å lage et simpelt kart på en webside og legge data om trafikkulykker fra Vegvesenet på. 
 
-Nødvendig kode og filer er tilgjengelig på [github](https://github.com/GeoForum/veiledning01). Du kan bygge opp filstrukturen selv eller bruke filene i denne veiledning.
+Nødvendig kode og filer er tilgjengelig på [github](https://github.com/GeoForum/veiledning01). Du kan bygge opp filstrukturen selv eller bruke filene i denne veiledning. Se også <a href="http://geoforum.github.io/veiledning01/" target="_blank">live demo på github pages</a>.
 
 Følge evt [denne instruks](testserver.md) hvis du vil sette opp lokal test-server.
 
