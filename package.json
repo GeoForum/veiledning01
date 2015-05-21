@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/GeoForum/veiledning02"
+    "url": "https://github.com/GeoForum/veiledning01"
   },
   "author": "Jonas Ellehauge - ellevator.net",
   "license": "",
   "bugs": {
-    "url": "https://github.com/GeoForum/veiledning02/issues"
+    "url": "https://github.com/GeoForum/veiledning01/issues"
   },
-  "homepage": "https://github.com/GeoForum/veiledning02"
+  "homepage": "https://github.com/GeoForum/veiledning01"
 }
