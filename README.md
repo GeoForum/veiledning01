@@ -88,7 +88,7 @@ $.ajax({
 });
 ```
 
-Koordinatene finnes i to formater i dette datasettet - hhv geometriWgs84 og geometriUtm33 - les evt mer om [kartprojeksjoner og koordinatsystem her](projeksjoner.md). Leaflet bruker i utgangspunktet WGS84 decimalgrader, og vi trenger derfor denne verdien. Den finnes her i et format kallet WKT [(Well Known Text)](http://en.wikipedia.org/wiki/Well-known_text). I disse data er det bare punkter, men WKT kan indeholde forskjellige geometrityper, her er noen eksempler:
+Koordinatene finnes i to formater i dette datasettet - hhv geometriWgs84 og geometriUtm33 - les evt mer om [kartprojeksjoner og koordinatsystem i Veiledning 5](https://github.com/GeoForum/veiledning05/). Leaflet bruker i utgangspunktet WGS84 decimalgrader, og vi trenger derfor denne verdien. Den finnes her i et format kallet WKT [(Well Known Text)](http://en.wikipedia.org/wiki/Well-known_text). I disse data er det bare punkter, men WKT kan indeholde forskjellige geometrityper, her er noen eksempler:
 ```js
 "POINT (30 10)";
 "LINESTRING (30 10, 10 30, 40 40)";
