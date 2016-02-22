@@ -19,21 +19,25 @@ var createMap = function(){
   var watercoler = L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg', {
       attribution: '&copy; <a href="http://maps.stamen.com">Stamen</a>'
   });
-  var toner = L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg', {
+/*  var toner = L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg', {
       attribution: '&copy; <a href="http://maps.stamen.com">Stamen</a>'
+  });*/
+  var posi = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+    subdomains: 'abcd'
   });
   // Lag et kart og tilføy første lag:
   var map = app.map = L.map('map', {
       center: [63.174193604205094, 16.36962890625] //[59.91235, 10.7357]
-    , zoom: 4 //11
-    , layers: [toner]
+    , zoom: 4 
+    , layers: [posi]
   })
 
   // Lag et verktøy som skruer lag av og på, den tilfører også lagene til kartet:
   var baseMaps = {
       "Open Street Map": osm
     , "Vannfarge": watercoler
-    , "Toner": toner
+    , "Positron": posi
   };
   var overlays = {};
   L.control.layers(baseMaps, overlays).addTo(map);

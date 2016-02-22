@@ -26,30 +26,29 @@ eller bruk alternativt hosted versjon av filene:
 Html dokumentet skal inneholde et element som kartet renderes i, her `<div class="map" id="map"></div>`, deretter lages et kart med 3 lag - se [js/eks01.js](js/eks01.js):
 
 ```js
-var layers = [];
 var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 });
 var watercoler = L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg', {
     attribution: '&copy; <a href="http://maps.stamen.com">Stamen</a>'
 });
-var toner = L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg', {
-    attribution: '&copy; <a href="http://maps.stamen.com">Stamen</a>'
+var posi = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+  subdomains: 'abcd'
 });
-layers.push(osm, watercoler, toner);
 var map = app.map = L.map('map', {
     center: [59.91235, 10.7357]
   , zoom: 11
-  , layers: layers
+  , layers: [posi]
 })
 ```
-Hvis du tester siden i din nettleser nå, vil du se, at det siste laget legger seg øverst og de andre lag ikke kan sees. For å kunne skiftet mellom lagene, tilføyes et verktøy til å skifte lag:
+Hvis du tester siden i din nettleser nå, vil du se, at bare laget 'positron' er synlig. For å kunne skiftet mellom lagene, tilføyes et verktøy til å skifte lag:
 
 ```js
 var baseMaps = {
     "Open Street Map": osm
   , "Vannfarge": watercoler
-  , "Toner": toner
+  , "Positron": posi
 };
 var overlays = {};
 L.control.layers(baseMaps, overlays).addTo(map);
